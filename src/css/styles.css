@@ -1,0 +1,214 @@
+/**
+  |============================
+  | include css partials with
+  | default @import url()
+  |============================
+*/
+/* Common styles */
+@import url('./reset.css');
+@import url('izitoast/dist/css/iziToast.min.css'); /* Додатковий імпорт стилів*/
+
+
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color: #242424;
+ 
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 91px;
+  height: 40px;
+  background: #4e75ff;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.04em;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  }
+button:hover,
+button:focus {
+  background: #6c8cff;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 36px;
+  margin-bottom: 32px;
+  gap: 8px;
+}
+
+.search-input {
+  border: 1px solid #808080;
+  border-radius: 4px;
+  width: 272px;
+  height: 40px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding-left: 16px;
+  font-weight: 400;
+font-size: 16px;
+line-height: 150%;
+letter-spacing: 0.04em;
+color: #808080;
+  }
+
+.search-input:hover,
+.search-input:focus {
+  border: 1px solid #000;
+}
+
+.gallery {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  
+}
+
+.gallery-card {
+  border: 1px solid #808080;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.gallery-card:hover {
+  border: 1px solid #413b3b;
+}
+
+.gallery-link {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.gallery-link:focus,
+.gallery-link:hover {
+  .gallery-img {
+    transform: scale(1.04);
+  }
+  .description {
+    padding-top: 8px;
+    padding-bottom: 0;
+    transition: padding 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+.gallery-img {
+  display: block;
+  width: 360px;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+  transform: scale(1.04);
+}
+
+.description {
+  display: flex;
+  justify-content: space-around;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 133%;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+  text-align: center;
+  padding: 4px 20px;
+}
+
+.description-value {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 200%;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+  text-align: center;
+}
+
+.is-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.loader {
+  display: block;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: relative;
+  border: 3px solid;
+  border-color: #034b65 #034b65 transparent transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 24px;
+}
+.loader::after,
+.loader::before {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 3px solid;
+  border-color: transparent transparent #2ebef3 #2ebef3;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: rotationBack 0.5s linear infinite;
+  transform-origin: center center;
+}
+.loader::before {
+  width: 32px;
+  height: 32px;
+  border-color: #034b65 #034b65 transparent transparent;
+  animation: rotation 1.5s linear infinite;
+}
+    
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+    
