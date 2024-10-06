@@ -1,25 +1,34 @@
-const base_URL = 'https://pixabay.com/api/';
+import axios from "axios";
 
-export const fetchPhotos = searchedQuery => {
-    const urlParams = new URLSearchParams({
-        key: '46295007-756af9891ee3ef29b100a63be',
-        q: searchedQuery,
-        image_type: 'photo',
-        orientation: 'horizontal',
-        safesearch: true,
-    });
+axios.defaults.baseURL = 'https://pixabay.com/api/';
 
-   return fetch(`${base_URL}?${urlParams}`).then(response => {
-   
-        if (!response.ok) {
-            // const rejectedPromise = new Promise ((resolve, reject) => {
-            //     reject(response.status);
-            // });
-            // return rejectedPromise;
+export const fetchPhotos = (searchedQuery, page = 1) => {
+        // const urlParams = new URLSearchParams({
+        //     key: '46295007-756af9891ee3ef29b100a63be',
+        //     q: searchedQuery,
+        //     image_type: 'photo',
+        //     orientation: 'horizontal',
+        //     safesearch: true,
+        // });
     
-            //Замість вищезазначеного коду використовуємо оператор throw (генерування помилки)
-            throw new Error(response.status);
-        }
-        return response.json();
-    });
+        const axiosOptions = {
+            params: {
+            key: '46295007-756af9891ee3ef29b100a63be',
+            q: searchedQuery,
+            image_type: 'photo',
+            orientation: 'horizontal',
+            safesearch: true,
+            page: page,
+            per_page: 15,
+            },
+        };
+     return axios.get(``, axiosOptions); /*axios.defaults.baseURL - automatically write to ``*/
+     
+        //     if (!response.ok) {
+        //         throw new Error(response.status);
+        //     }
+
+        //  return response.json();
+
+        
 };
