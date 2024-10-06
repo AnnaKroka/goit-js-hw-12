@@ -100,7 +100,7 @@ const onLoadMoreBtn = async (event) => {
     const galleryItem = document
       .querySelector('.gallery-card')
       .getBoundingClientRect();
-      
+
     const cardSize = galleryItem.height;
     window.scrollBy({
       top: cardSize * 2,
@@ -117,8 +117,10 @@ const onLoadMoreBtn = async (event) => {
 
   }
   catch (err) {
-    console.log(err);
-  }
+    if (err.message === '404') {
+                    showMessage('Your request was not found');
+            }
+            }
   finally {
     hideLoader();
     searchForm.reset();
